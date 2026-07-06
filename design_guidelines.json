@@ -1,0 +1,70 @@
+{
+  "project_name": "TrendCart E-Commerce",
+  "theme": "light",
+  "archetype": "Archetype 1 (Organic & Earthy) - Warm Minimalist Premium Tech",
+  "colors": {
+    "background": "bg-stone-50",
+    "background_hex": "#FAFAF9",
+    "text_primary": "text-stone-900",
+    "text_primary_hex": "#1C1917",
+    "text_secondary": "text-stone-500",
+    "accent_primary": "bg-orange-500",
+    "accent_primary_hex": "#F97316",
+    "accent_hover": "bg-orange-600",
+    "border_subtle": "border-stone-200",
+    "surface": "bg-white",
+    "surface_glass": "bg-white/70"
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Manrope",
+    "hero_overline": "text-sm sm:text-base font-semibold tracking-[0.2em] uppercase text-orange-500",
+    "hero_h1": "text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-stone-900",
+    "hero_subtitle": "text-base sm:text-lg lg:text-xl font-normal text-stone-500 leading-relaxed max-w-2xl",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight",
+    "h3": "text-xl sm:text-2xl font-medium",
+    "body": "text-base leading-relaxed text-stone-600"
+  },
+  "layout": {
+    "spacing_philosophy": "Generous spacing. Use py-24 for sections. Ample whitespace to let products breathe.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grid_system": {
+      "product_grid": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16"
+    },
+    "components": {
+      "navbar": "Sticky, glassmorphism (`backdrop-blur-xl bg-stone-50/80 border-b border-stone-200`), z-50. Include Logo, Search placeholder, Wishlist, Cart, Profile dropdown.",
+      "buttons": "Rounded-full for premium feel. Primary: `bg-orange-500 text-white hover:bg-orange-600`. Secondary: `border border-stone-300 text-stone-900 hover:border-stone-500`.",
+      "product_card": "Borderless. `aspect-[4/5]` image container with `bg-stone-100 rounded-2xl overflow-hidden`. Image scales on hover (`scale-105 transition-transform duration-500`). Text is left-aligned below the image. Title in `stone-900`, Price (₹249) in `stone-500`.",
+      "cart_drawer": "Slide-out from right (use Shadcn Sheet). Minimalist layout, white background, subtotal calculation, sticky checkout button at the bottom.",
+      "trust_badges": "Flex row, gap-4 to gap-8, small text (`text-xs` or `text-sm`), subtle gray icons. Positioned below hero buttons."
+    }
+  },
+  "media": {
+    "logo": "https://customer-assets.emergentagent.com/job_9542524b-267c-4111-b154-1ffeb2984fad/artifacts/o3vs8lw1_trendcart.jpeg",
+    "hero_lifestyle": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjB0ZWNoJTIwZGVzayUyMG1pbmltYWxpc3R8ZW58MHx8fHwxNzgzMzY4OTU0fDA&ixlib=rb-4.1.0&q=85",
+    "product_transparent_1": "https://images.unsplash.com/photo-1583291023438-41cef6453b1f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxpcGhvbmUlMjBjYXNlJTIwdHJhbnNwYXJlbnR8ZW58MHx8fHwxNzgzMzY4OTUzfDA&ixlib=rb-4.1.0&q=85",
+    "product_transparent_2": "https://images.unsplash.com/photo-1658300671728-fe052fdb5737?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwyfHxpcGhvbmUlMjBjYXNlJTIwdHJhbnNwYXJlbnR8ZW58MHx8fHwxNzgzMzY4OTUzfDA&ixlib=rb-4.1.0&q=85",
+    "product_silicone_1": "https://images.unsplash.com/photo-1542219550-76864b1bc385?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxpcGhvbmUlMjBjYXNlJTIwc2lsaWNvbmV8ZW58MHx8fHwxNzgzMzY4OTU0fDA&ixlib=rb-4.1.0&q=85",
+    "product_silicone_2": "https://images.unsplash.com/photo-1535157412991-2ef801c1748b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxpcGhvbmUlMjBjYXNlJTIwc2lsaWNvbmV8ZW58MHx8fHwxNzgzMzY4OTU0fDA&ixlib=rb-4.1.0&q=85",
+    "product_accessories": "https://images.unsplash.com/photo-1758218096054-ef3c7b56582c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwzfHxpcGhvbmUlMjBjYXNlJTIwdHJhbnNwYXJlbnR8ZW58MHx8fHwxNzgzMzY4OTUzfDA&ixlib=rb-4.1.0&q=85",
+    "lifestyle_blue_iphone": "https://images.unsplash.com/photo-1726839662758-e3b5da59b0fb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxpcGhvbmUlMjBjYXNlJTIwc2lsaWNvbmV8ZW58MHx8fHwxNzgzMzY4OTU0fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "interactions": {
+    "hover_effects": "Use smooth transitions (`duration-300 ease-out`). Product cards should have a gentle lift and image slight scale on hover.",
+    "testing_requirements": "All interactive elements MUST have descriptive `data-testid` attributes (e.g., `data-testid='btn-add-to-cart-silicone-1'`, `data-testid='nav-cart-icon'`, `data-testid='checkout-form-submit'`)."
+  },
+  "instructions_to_main_agent": [
+    "You are building 'TrendCart'. Implement the exact Google Sign-in landing page structure that redirects to the main store after auth.",
+    "Include the navbar with Logo, Search input placeholder ('Search cases...'), Wishlist icon, Cart icon, and Profile/Sign-out dropdown. Links: Shop, Silicone, Transparent, About, Contact.",
+    "Hero Section MUST use the texts: Overline: 'Premium Cases | MagSafe Ready', Heading: 'Protection, refined.', Subtitle: 'Transparent Anti-Yellow, Silicone, and MagSafe cases engineered for every device. Minimal by design. Built to last.'",
+    "Hero MUST include two buttons: 'Shop the collection' (with arrow) and 'Our story'.",
+    "Trust badges MUST be present below hero: 'Anti-Yellow Coating', 'MagSafe Certified', 'Free Shipping ₹999+'.",
+    "Product cards MUST show images, title, ₹249 price, and an 'Add to Cart' button.",
+    "Implement a slide-out Cart Drawer with a live subtotal calculation.",
+    "Create a minimalist Checkout Page capturing Name, Phone, and Address. The final action is a 'Place Order via WhatsApp' button.",
+    "Ensure 'Outfit' (Headings) and 'Manrope' (Body) fonts are loaded via Google Fonts. Do NOT use Inter or Roboto.",
+    "Use lucide-react for all icons.",
+    "Do NOT use dummy image placeholders (like via.placeholder.com). ONLY use the images provided in the media section of this JSON.",
+    "Strictly follow the color scheme: Off-white background (bg-stone-50), deep charcoal text (text-stone-900), warm orange (#F97316) primary accent."
+  ]
+}
