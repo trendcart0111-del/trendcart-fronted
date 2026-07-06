@@ -1,53 +1,110 @@
-import { useEffect } from "react";
+import React from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { CartProvider } from "@/context/CartContext";
+import Navbar from "@/components/Navbar";
+import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
+import Landing from "@/pages/Landing";
+import AuthCallback from "@/pages/AuthCallback";
+import Home from "@/pages/Home";
+import { Shop, Silicone, Transparent } from "@/pages/Catalog";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+import Checkout from "@/pages/Checkout";
+import Wishlist from "@/pages/Wishlist";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+// Public layout - accessible without login
+const PublicLayout = ({ children }) => (
+  <>
+    <Navbar />
+    <CartDrawer />
+    <main className="min-h-[70vh]">{children}</main>
+    <Footer />
+  </>
+);
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+// Login-required layout - used only for checkout
+const RequireAuthLayout = ({ children }) => {
+  const { user, loading } = useAuth();
+  const location = useLocation();
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-stone-50">
+        <div className="h-8 w-8 rounded-full border-2 border-stone-300 border-t-orange-500 animate-spin" />
+      </div>
+    );
+  }
+  if (!user) {
+    const next = encodeURIComponent(location.pathname + location.search);
+    return <Navigate to={`/signin?next=${next}`} replace />;
+  }
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <CartDrawer />
+      <main className="min-h-[70vh]">{children}</main>
+      <Footer />
+    </>
   );
 };
+
+function AppRouter() {
+  const location = useLocation();
+
+  // Handle OAuth callback synchronously (before other routes)
+  if (location.hash?.includes("session_id=")) {
+    return <AuthCallback />;
+  }
+
+  return (
+    <Routes>
+      {/* Public homepage */}
+      <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
+      <Route path="/shop" element={<PublicLayout><Shop /></PublicLayout>} />
+      <Route path="/silicone" element={<PublicLayout><Silicone /></PublicLayout>} />
+      <Route path="/transparent" element={<PublicLayout><Transparent /></PublicLayout>} />
+      <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
+      <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
+      <Route path="/wishlist" element={<PublicLayout><Wishlist /></PublicLayout>} />
+
+      {/* Sign-in page (Google auth) */}
+      <Route path="/signin" element={<Landing />} />
+
+      {/* Auth required only for checkout */}
+      <Route
+        path="/checkout"
+        element={
+          <RequireAuthLayout>
+            <Checkout />
+          </RequireAuthLayout>
+        }
+      />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <AuthProvider>
+          <CartProvider>
+            <AppRouter />
+            <Toaster position="bottom-right" richColors />
+          </CartProvider>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );
