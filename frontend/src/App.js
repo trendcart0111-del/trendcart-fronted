@@ -1,4 +1,3 @@
-import React from "react";
 import "@/App.css";
 import {
   BrowserRouter,
@@ -8,7 +7,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
-import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { AuthProviimport React from "react";
+der, useAuth } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import CartDrawer from "@/components/CartDrawer";
